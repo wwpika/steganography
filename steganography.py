@@ -7,7 +7,7 @@ from PIL import Image
 def makeImageEven(image):
     pixels = list(image.getdata())  # 得到一个这样的列表： [(r,g,b),(r,g,b)...]
 
-    evenPixels = [(r>>1<<1,g>>1<<1,b>>1<<1) for [r,g,b] in pixels]  # 更改所有值为偶数（魔法般的移位）
+    evenPixels = [(r>>1<<1,g>>1<<1,b>>1<<1) for [r,g,b] in pixels]  # 更改所有值为偶数
     evenImage = Image.new(image.mode, image.size)  # 创建一个相同大小的图片副本
     evenImage.putdata(evenPixels)  # 把上面的像素放入到图片副本
     return evenImage
