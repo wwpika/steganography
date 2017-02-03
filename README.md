@@ -22,3 +22,11 @@ BYTE rgbReserved; // 保留字节（用作Alpha通道或忽略）
 } RGBQUAD。
 
 注意 ：有的图片的像素值为(r,g,b,t)，有的为(r,g,b)，可以根据实际情况来修改代码
+
+bin():Convert an integer number to a binary string.
+
+Image.getdata():Returns the contents of this image as a sequence object containing pixel values.
+
+Image.putdata():Copies pixel data to this image.
+
+Image.new():Creates a new image with the given mode and size.
