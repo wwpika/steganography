@@ -29,4 +29,18 @@ Image.getdata():Returns the contents of this image as a sequence object containi
 
 Image.putdata():Copies pixel data to this image.
 
-Image.new():Creates a new image with the given mode and size.
+Image.new():Creates a new image with the given mode and size.f-8
+
+注意：
+
+1.将藏在图片中的数据提取出来后，需要对其进行解码，然后将它转换为字符串，在次之前，要先了解utf-8的编码方式(不同的字符占用的字节数不一样)
+
+对于UTF-8编码中的任意字节B，如果B的第一位为0，则B独立的表示一个字符(ASCII码)；
+
+如果B的第一位为1，第二位为0，则B为一个多字节字符中的一个字节(非ASCII字符)；
+
+如果B的前两位为1，第三位为0，则B为两个字节表示的字符中的第一个字节；
+
+如果B的前三位为1，第四位为0，则B为三个字节表示的字符中的第一个字节；
+
+如果B的前四位为1，第五位为0，则B为四个字节表示的字符中的第一个字节；
