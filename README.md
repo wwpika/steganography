@@ -48,3 +48,13 @@ class int(x, base=10):Return an integer object constructed from a number or stri
 如果B的前三位为1，第四位为0，则B为三个字节表示的字符中的第一个字节；
 
 如果B的前四位为1，第五位为0，则B为四个字节表示的字符中的第一个字节；
+
+2.来看2个lambda表达式实现的递归
+
+rec = lambda x, i: x[2:8] + (rec(x[8:], i-1) if i > 1 else '') if x else ''
+
+fun = lambda x, i: x[i+1:8] + rec(x[8:], i-1)
+
+x:代表一个字符所对应的二进制字符串(如：你-->11100100 10111101 10100000)
+
+i:代表一个字符占了几个字节(如:你-->3)
