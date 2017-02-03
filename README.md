@@ -31,6 +31,10 @@ Image.putdata():Copies pixel data to this image.
 
 Image.new():Creates a new image with the given mode and size.f-8
 
+chr(i):Return the string representing a character whose Unicode code point is the integer i. For example, chr(97) returns the string 'a'
+
+class int(x, base=10):Return an integer object constructed from a number or string x, or return 0 if no arguments are given.
+
 注意：
 
 1.将藏在图片中的数据提取出来后，需要对其进行解码，然后将它转换为字符串，在次之前，要先了解utf-8的编码方式(不同的字符占用的字节数不一样)
