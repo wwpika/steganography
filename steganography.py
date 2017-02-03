@@ -25,6 +25,7 @@ def constLenBin(int):
 def encodeDataInImage(image, data):
     evenImage = makeImageEven(image)  # 获得最低有效位为 0 的图片副本
     binary = ''.join(map(constLenBin,bytearray(data, 'utf-8'))) # 将需要被隐藏的字符串转换成二进制字符串
+    print(binary)
     if len(binary) > len(image.getdata()) * 3:  # 如果不可能编码全部数据， 抛出异常
         raise Exception("Error: Can't encode more than " + len(evenImage.getdata()) * 3 + " bits in this image. ")
     encodedPixels = [(r+int(binary[index*3+0]),g+int(binary[index*3+1]),b+int(binary[index*3+2])) if index*3 < len(binary) else (r,g,b) for index,(r,g,b) in enumerate(list(evenImage.getdata()))] # 将 binary 中的二进制字符串信息编码进像素里
@@ -60,6 +61,6 @@ def decodeImage(image):
     data = binaryToString(binary[0:endIndex])
     return data
 
-encodeDataInImage(Image.open("coffee.png"), '这是一个小诡计，哈哈哈，Hello world!').save('encodeImage.png')
+encodeDataInImage(Image.open("coffee.png"), '你').save('encodeImage.png')
 print(decodeImage(Image.open("encodeImage.png")))
 
